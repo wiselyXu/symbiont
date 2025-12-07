@@ -3,40 +3,44 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]        # 改成你的主分支名
-  workflow_dispatch:
+    branches: [master]  # 假设你的主分支是 main，改成 master 如果需要
+  workflow_dispatch:  # 允许手动触发
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      # 关键：先全局安装 pnpm
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: latest        # 自动装最新版 pnpm
+          version: latest
+          
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      # 再配置 Node + 自动缓存 pnpm-lock.yaml
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'pnpm'         # 自动识别 pnpm-lock.yaml 并缓存
+          node-version: 20  # Next.js 15+ 推荐 Node 20
+          cache: 'pnpm'  # ← 关键！指定 pnpm 缓存，自动用 pnpm-lock.yaml
+
+      - name: Install pnpm
+        run: npm install -g pnpm  # 安装 pnpm（GitHub Actions 默认无 pnpm）
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile  # 用你的 pnpm-lock.yaml 精确安装
 
-      - name: Build static site
-        run: pnpm run build
-        # 这一步会生成 out/ 目录
+      - name: Build
+        run: pnpm run build  # Next.js 构建
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -44,7 +48,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: out               # 必须是 out 目录
+          path: './out'  # Next.js Pages 输出目录（见下一步配置）
 
   deploy:
     environment:
