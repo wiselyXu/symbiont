@@ -39,7 +39,7 @@ export default function RootLayout({
           <div className="fixed top-0 left-0 z-50 p-4">
             <div className="flex items-center gap-2">
               <img
-              src="/logo.svg"
+              src="/symbiont/logo.svg"
                 // src="/images/symbiont.svg"
                 alt="Symbiont Logo"
                 className="w-8 h-8 md:w-10 md:h-10"
