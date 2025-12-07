@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
     ],
     unoptimized: true,
   },
+
+  basePath: '/symbiont',          // ← 改成你的仓库名！！！
+  assetPrefix: '/symbiont/',
 }
 
 export default nextConfig
