@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 240 10% 4%; /* #0A0A0F 接近纯黑 - 主背景 */
+  --foreground: 0 0% 98%; /* #FAFAFA 接近纯白 */
+  --card: 240 10% 6%; /* #0F0F14 稍亮的黑 */
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 6%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 221 83% 53%; /* #3B82F6 品牌蓝 - 主色 */
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 5% 15%; /* #262626 深灰 - 辅色 */
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 5% 20%;
+  --muted-foreground: 240 5% 65%;
+  --accent: 174 100% 50%; /* #00FFD1 赛博青 - 强调色 */
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5% 20%;
+  --input: 240 5% 20%;
+  --ring: 221 83% 53%; /* #3B82F6 品牌蓝 */
+  --radius: 0.75rem;
+}
+
+.light {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 221 83% 53%; /* #3B82F6 品牌蓝 - 主色 */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 40% 96.1%; /* #F3F4F6 浅灰 */
+  --secondary-foreground: 222.2 84% 4.9%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 174 100% 50%; /* #00FFD1 赛博青 - 强调色 */
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221 83% 53%; /* #3B82F6 品牌蓝 */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-gradient-linear {
+    background: linear-gradient(135deg, #0A0A0F 0%, #0F0F14 50%, #1A1A2E 100%);
+  }
+
+  .bg-gradient-accent {
+    background: linear-gradient(135deg, #00FFD1 0%, #3B82F6 50%, #8B5CF6 100%);
+  }
+
+  .text-gradient-accent {
+    background: linear-gradient(135deg, #00FFD1 0%, #3B82F6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(0, 255, 209, 0.5);
+  }
+
+  .glow-primary:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 209, 0.8);
+  }
+}
