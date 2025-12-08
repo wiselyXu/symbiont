@@ -46,8 +46,8 @@ export default function RootLayout({
                 className="w-8 h-8 md:w-10 md:h-10"
               /> */}
               <Image
-  src="/logo.svg"           // ← 这里不用加 /symbiont/，Image 组件自动处理
-  alt="Symbiont Logo"
+  src="/logo.svg"           // ← 这里不用加 /symbiont/，Image 组件自动处理   /icons/logo.svg" 虽然没有/icon 路径， 要试一下吗
+  alt="Symbiont 赛博特"
   width={40}
   height={40}
   className="drop-shadow-2xl"

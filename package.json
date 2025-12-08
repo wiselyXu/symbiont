@@ -5,13 +5,15 @@
   "description": "symbiont – Next 15 + React 19 + TypeScript App Router + RSC with mock APIs, i18n",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "ori-build": "next build",
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx --max-warnings 0",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
     "prepare": "husky install",
-    "seed": "tsx scripts/seed.ts"
+    "seed": "tsx scripts/seed.ts",
+    "build": "NODE_ENV=production GITHUB_PAGES=true next build",
+    "preview": "next build && npx serve out --single"
   },
   "engines": {
     "node": ">=18.18.0"
