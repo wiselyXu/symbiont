@@ -7,8 +7,8 @@ const nextConfig: NextConfig = {
   output: 'export',
 
   // GitHub Pages 部署时用相对路径
-  assetPrefix: isGithubPages ? '/symbiont' : undefined,
-  basePath: isGithubPages ? '/symbiont/' : '',
+  assetPrefix: isGithubPages ? '/symbiont/' : undefined,
+  basePath: isGithubPages ? '/symbiont' : '',
   trailingSlash: true,
 
   reactStrictMode: true,
