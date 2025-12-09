@@ -100,7 +100,7 @@ export default function Home() {
                   <Network className="h-8 w-8 text-blue-400" />
                 </div>
                 <CardTitle className="text-2xl text-white">🧬 Symbiont</CardTitle>
-                <CardDescription className="text-lg text-gray-300">全球最大的智能体共生网络</CardDescription>
+                <CardDescription className="text-lg text-gray-300">全球最大的智能体共生聚合器</CardDescription>
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-gray-300">
@@ -323,7 +323,7 @@ export default function Home() {
       <section className="py-20">
         <div className="container mx-auto px-4 text-center bg-gray-900/80 backdrop-blur-md rounded-2xl p-8 md:p-12 border border-gray-700 shadow-2xl">
           <h2 className="mb-12 text-4xl md:text-5xl font-bold text-white">
-            加入共生网络
+            加入共生聚合器
           </h2>
 
           <div className="flex flex-col md:flex-row gap-6 justify-center max-w-2xl mx-auto">
